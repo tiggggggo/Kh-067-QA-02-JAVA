@@ -7,8 +7,6 @@ public class DateUtils {
     public static LocalDate getLocalDate(String date, String dateFormat){
         LocalDate dateLocal = LocalDate.parse(date, DateTimeFormatter.ofPattern(dateFormat));
         return dateLocal;
-
-
     }
 
     public static String getDateAsString(LocalDate localDate, String dateFormat){
