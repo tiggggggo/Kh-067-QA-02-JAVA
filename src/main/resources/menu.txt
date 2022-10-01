@@ -1,0 +1,4 @@
+F | White Bread | 285
+F | Dark Bread | 257
+B | Water | 0
+B | Tea | 0
