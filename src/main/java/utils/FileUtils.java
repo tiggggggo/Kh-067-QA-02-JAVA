@@ -12,9 +12,9 @@ public class FileUtils {
         try {
             return myObj.createNewFile();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+           System.out.println(e.getMessage());
         }
-
+        return true;
     }
     public static List<String> readFile(String filePath){
         List<String> result = new ArrayList<>();
@@ -32,14 +32,14 @@ public class FileUtils {
     }
 
 
-    public static void writeFile(String filePath, List<String> listOfWords){
+    public static void writeFile(String filePath, List<String> stringList){
         try (BufferedWriter buffer = new BufferedWriter(
                 new FileWriter(filePath,true))) {
-            for (String word : listOfWords) {
+            for (String word : stringList) {
                 buffer.write(word+"\n");
             }
         } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            System.out.println(ex.getMessage());
         }
     }
 }
