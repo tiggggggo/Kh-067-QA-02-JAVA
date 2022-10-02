@@ -31,7 +31,6 @@ public class FileUtils {
 
     }
 
-
     public static void writeFile(String filePath, List<String> stringList){
         try (BufferedWriter buffer = new BufferedWriter(
                 new FileWriter(filePath,true))) {
@@ -43,3 +42,4 @@ public class FileUtils {
         }
     }
 }
+
