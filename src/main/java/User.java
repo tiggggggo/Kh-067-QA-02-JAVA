@@ -3,9 +3,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class User {
-    private String name;
-    private int height;
-    private double weight;
+    private final String name;
+    private final int height;
+    private final double weight;
 
     public User(String name) {
         if (name == null || name.trim().length() == 0) {
@@ -26,17 +26,29 @@ public class User {
         if (!isDouble((userParameters[2]))) {
             throw new IllegalArgumentException("Parameter weight=" + (userParameters[2]) + " is not double");
         }
-        this.weight = Integer.parseInt(userParameters[2]);
+        this.weight = Double.parseDouble(userParameters[2]);
 
     }
 
-    public User() throws IOException {
-        this.name = readName();
-        this.height = readHeight();
-        this.weight = readWeight();
+    public User()  {
+        try {
+            this.name = readName();
+            this.height = readHeight();
+            this.weight = readWeight();
+        }catch (IOException ex) {
+            throw new RuntimeException("Unexpected error happened working with steams: ", ex);
+        }
     }
 
     public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
+
+    public String getStringRepresentation() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", height=" + height +
@@ -95,6 +107,7 @@ public class User {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         return reader.readLine();
     }
+
 }
 
 
