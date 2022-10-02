@@ -35,7 +35,7 @@ public class FileUtils {
     public static void writeFile(String filePath, List<String> stringList){
         try (BufferedWriter buffer = new BufferedWriter(
                 new FileWriter(filePath,true))) {
-            for (String word : stringList) {
+            for (String string : stringList) {
                 buffer.write(word+"\n");
             }
         } catch (IOException ex) {
